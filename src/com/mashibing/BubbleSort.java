@@ -2,11 +2,28 @@ package com.mashibing;
 
 public class BubbleSort {
 	public static void main(String[] args) {
-		int[] a = { 9, 3, 1, 4, 6, 8, 7, 5, 2};
-		sort(a);
+		int[] a = { 9, 3, 1, 4, 6, 8, 1, 5, 2};
+		sort3(a);
 		print(a);
 	}
-
+	static void sort2(int[] arr) {
+		for(int i=0;i<arr.length;i++){
+			for (int j=0;j<arr.length-i-1;j++){
+				if (arr[j]>arr[j+1]){
+					swap(arr,j+1,j);
+				}
+			}
+		}
+	}
+	static void sort3(int[] arr) {
+		for(int i=arr.length-1;i>0;i--){
+			for (int j=0;j<i;j++){
+				if (arr[j]>arr[j+1]){
+					swap(arr,j+1,j);
+				}
+			}
+		}
+	}
 	static void sort(int[] a) {
 		for(int i=a.length-1; i>0; i--)
 			findMax(a, i);

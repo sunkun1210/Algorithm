@@ -3,7 +3,7 @@ package com.mashibing;
 public class InsertionSort {
 	public static void main(String[] args) {
 		int[] a = { 9, 3, 1, 4, 6, 8, 7, 5, 2 };
-		sort(a);
+		sort2(a);
 		print(a);
 	}
 
@@ -16,7 +16,17 @@ public class InsertionSort {
 			}
 		}
 	}
-
+	static void sort2(int[] arr) {
+		for(int i=1; i<arr.length; i++) { //0-i有序
+			for(int j=i; j>0; j--) {
+				if(arr[j] < arr[j-1]) {
+					swap(arr, j, j-1);
+				}else{
+					break;
+				}
+			}
+		}
+	}
 	static void swap(int[] a, int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];

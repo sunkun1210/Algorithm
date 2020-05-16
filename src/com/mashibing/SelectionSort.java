@@ -3,13 +3,22 @@ package com.mashibing;
 public class SelectionSort {
 	public static void main(String[] args) {
 		int[] arr = {5, 3, 6, 8, 1, 7, 9, 4, 2};
-		
-		sort(arr);
+
+		sort2(arr);
 		
 		print(arr);
 		
 	}
-	
+	public static void sort2(int[] arr) {
+		for(int i=0; i<arr.length - 1; i++) {
+			int minIndex=i;
+			for(int j=i+1;j<arr.length;j++){
+				if (arr[minIndex]>arr[j]){
+					swap(arr, j, minIndex);
+				}
+			}
+		}
+	}
 	public static void sort(int[] arr) {
 		for(int i=0; i<arr.length - 1; i++) {
 			int minPos = i;

@@ -1,11 +1,9 @@
 package Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.Random;
 
-import org.junit.jupiter.api.Test;
 
 import com.mashibing.CountSort;
 
@@ -23,19 +21,19 @@ class CountSortTest {
 	}
 	
 
-	@Test
-	void testSort() {
-		int[] a = generateRandomArray();
-		int[] result = CountSort.sort(a);
-		Arrays.sort(a);
-		boolean same = true;
-		
-		for (int i = 0; i < a.length; i++) {
-			if(result[i] != a[i]) same = false;
-		}
-		
-		assertEquals(true, same);
-		
-	}
+//	@Test
+//	void testSort() {
+//		int[] a = generateRandomArray();
+//		int[] result = CountSort.sort(a);
+//		Arrays.sort(a);
+//		boolean same = true;
+//
+//		for (int i = 0; i < a.length; i++) {
+//			if(result[i] != a[i]) same = false;
+//		}
+//
+//		assertEquals(true, same);
+//
+//	}
 
 }
