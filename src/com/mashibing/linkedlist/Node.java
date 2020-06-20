@@ -2,12 +2,32 @@ package com.mashibing.linkedlist;
 
 public class Node {
 	int value;
-	Node next = null;
+	Node next;
 	
 	Node(int value) {
 		this.value = value;
 	}
-	
+
+	/***
+	 * 链表反转：反转函数一定有返回值，返回值是新header
+	 * 视频34分钟
+	 * @return
+	 */
+	public static Node reverseLinkList(Node head){
+			Node pre=null;
+			Node next=null;
+			while(head!=null){
+				next=head.next;
+
+				head.next=pre;
+				pre=head;
+
+				head=next;
+			}
+			return pre;
+	}
+
+
 	@Override
 	public String toString() {
 		return " "+value+ " ";
