@@ -1,4 +1,4 @@
-package com.mashibing.leetcode.DynamicProgramming;
+package com.mashibing.leetcode.dynamicProgramming;
 
 public class Fibonacci {
     volatile static int time =0;

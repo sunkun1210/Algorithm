@@ -1,4 +1,4 @@
-package com.mashibing.leetcode.DynamicProgramming;
+package com.mashibing.leetcode.dynamicProgramming;
 
 //64
 public class MinPathSum {

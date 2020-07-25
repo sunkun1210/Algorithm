@@ -1,4 +1,4 @@
-package com.mashibing.leetcode.DynamicProgramming;
+package com.mashibing.leetcode.dynamicProgramming;
 
 /***  1143
  * 对于两个子序列 S1 和 S2，找出它们最长的公共子序列。
