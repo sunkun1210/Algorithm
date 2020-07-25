@@ -16,7 +16,8 @@ public class PrintUseLockSupport {
                     LockSupport.park();
                 }
             }
-             LockSupport.unpark(thread1);
+             LockSupport.unpark(thread2); //让程序结束
+             LockSupport.unpark(thread1); //让程序结束
         });
          thread2=new Thread(()->{
              while (num<100){
@@ -28,6 +29,7 @@ public class PrintUseLockSupport {
                  }
              }
              LockSupport.unpark(thread2); //让程序结束
+             LockSupport.unpark(thread1); //让程序结束
         });
         thread1.start();
         thread2.start();
