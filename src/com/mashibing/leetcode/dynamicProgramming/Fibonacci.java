@@ -15,7 +15,7 @@ public class Fibonacci {
             return cache[N];
         }
         cache[N] = fib(N-1) + fib(N-2);// 否则将计算 N 对应的斐波那契数为 memoize(N-1) + memoize(N-2)。
-        return fib(N);
+        return cache[N];
     }
     public int fib3(int N) {
         time++;

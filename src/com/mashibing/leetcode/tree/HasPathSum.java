@@ -19,9 +19,15 @@ class HasPathSum {
       TreeNode right;
       TreeNode(int x) { val = x; }
     }
+
+
     public boolean hasPathSum(TreeNode root, int sum) {
-        if (root.left == null && root.right == null) {
-            return sum == root.val;
+//        if (root == null) {
+//            return false;
+//        }
+        //当题目中提到了叶子节点时，正确的做法一定要同时判断节点的左右子树同时为空才是叶子节点。
+        if(root.left==null&&root.right==null){
+            return root.val==sum;
         }
         return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
     }
@@ -42,5 +48,10 @@ class HasPathSum {
         TreeNode treeNode=hasPathSum.init();
         System.out.println(hasPathSum.hasPathSum(treeNode,4));
     }
-
+//    public boolean hasPathSum(TreeNode root, int sum) {
+//        if (root.left == null && root.right == null) {
+//            return sum == root.val;
+//        }
+//        return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
+//    }
 }
