@@ -1,6 +1,10 @@
 package com.mashibing.leetcode;
 
 //206 203 24 19
+
+/**
+ * 知晓实际的节点交换会改变原链表的结构，因此需要一个辅助哨兵节点listNode指向实际链表头部
+ */
 public class ReverseList {
     public class ListNode {
       int val;
@@ -114,12 +118,32 @@ public class ReverseList {
     public static void main(String[] args) {
         ReverseList reverseList = new ReverseList();
         ListNode listNode = reverseList.init();
-        ListNode listNode1=reverseList.swapPairs(listNode);
+        ListNode listNode1=reverseList.swapPairs2(listNode);
         ListNode cur =listNode1;
         while(cur!=null){
             System.out.println(cur.val);
             cur=cur.next;
         }
     }
+    public ListNode swapPairs2(ListNode head) {
+        ListNode sentinel=new ListNode(-1);
+        sentinel.next=head;
+
+        ListNode pre=sentinel;
+        while (pre!=null&&pre.next!=null){
+            ListNode node1=pre.next;
+            ListNode node2=node1.next;
+            ListNode nex=node2.next;
+
+            node2.next=node1;
+            node1.next=nex;
+
+            pre.next=node2;////////////????????????TODO
+
+            pre=node1;
+        }
+        return sentinel.next;
+    }
+
 
 }
