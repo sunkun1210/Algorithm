@@ -3,6 +3,7 @@ package com.mashibing.thread;
 import jdk.nashorn.internal.ir.CatchNode;
 
 import java.util.LinkedList;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -25,7 +26,7 @@ public class MyContainer2<T> {
                 producer.await();
             }
             lists.add(t);
-            System.out.println("shengchan======");
+            System.out.println("生产======");
             count++;
             consumer.signal();
         } catch (Exception e){
@@ -43,7 +44,7 @@ public class MyContainer2<T> {
                 consumer.await();
             }
             t=lists.removeFirst();
-            System.out.println("xiaofei======");
+            System.out.println("消费======");
             count--;
             producer.signal();
         } catch (Exception e){
@@ -55,6 +56,16 @@ public class MyContainer2<T> {
     }
 
     public static void main(String[] args) {
+//        BlockingQueue<Runnable> queue = new ArrayBlockingQueue<>(2);
+//        RejectedExecutionHandler defaultHandler =new ThreadPoolExecutor.CallerRunsPolicy();
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,2,10L,
+//                TimeUnit.SECONDS,queue,defaultHandler);
+//        while (true){
+//            threadPoolExecutor.submit(()->{
+//                System.out.println("hahaahaha");
+//            });
+//        }
+
         MyContainer2 myContainer2 = new MyContainer2();
 
         for (int i=0;i<1;i++){
