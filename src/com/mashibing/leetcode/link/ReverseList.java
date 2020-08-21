@@ -1,4 +1,4 @@
-package com.mashibing.leetcode;
+package com.mashibing.leetcode.link;
 
 //206 203 24 19
 
@@ -11,6 +11,16 @@ public class ReverseList {
       ListNode next;
       ListNode(int x) { val = x; }
     }
+    //206
+
+    /**
+     * 我们可以申请两个指针，第一个指针叫 pre，最初是指向 null 的。
+     * 第二个指针 cur 指向 head，然后不断遍历 cur。
+     * 每次迭代到 cur，都将 cur 的 next 指向 pre，然后 pre 和 cur 前进一位。
+     * 都迭代完了(cur 变成 null 了)，pre 就是最后一个节点了。
+     * @param head
+     * @return
+     */
     public ListNode reverseList(ListNode head) {
         ListNode cur = head; //当前节点
         ListNode pre = null; //前一个节点
@@ -23,7 +33,21 @@ public class ReverseList {
         }
         return pre;
     }
-
+    public boolean hasCycle(ListNode head) {
+        if (head==null||head.next==null){
+            return false;
+        }
+        ListNode slow=head;
+        ListNode fast=head.next;
+        while (slow!=fast){
+            if (fast.next==null||fast.next.next==null){
+                return false;
+            }
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return true;
+    }
     ListNode init(){
         ListNode listNode1= new ListNode(1);
         ListNode listNode2= new ListNode(2);
